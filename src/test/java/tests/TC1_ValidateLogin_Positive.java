@@ -6,16 +6,17 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import hooks.BaseClass;
+import hooks.LoginTestData;
 import pages.LoginPage;
 import reports.ExtentReportManager;
 
 public class TC1_ValidateLogin_Positive extends BaseClass{
 
 
-	@Test
-	public void loginPHP() {
-		new LoginPage(driver).inputLoginPassword("bgayathri1993@gmail.com")
-		.inputLoginUserName("Password@1")
+	@Test(dataProvider = "loginData",dataProviderClass = LoginTestData.class )
+	public void loginPHP(String username, String password) {
+		new LoginPage(driver).inputLoginPassword(username)
+		.inputLoginUserName(password)
 		.checkboxRememberme()
 		.clickSubmit();
 		

@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="BaseClass(failed)">
     <classes>
-      <class name="tests.TC2_ValidateLogin_Negative">
-        <methods>
-          <include name="validateNegativeLogin"/>
-          <include name="initialSetUp"/>
-          <include name="tearDown"/>
-          <include name="readProperties"/>
-        </methods>
-      </class> <!-- tests.TC2_ValidateLogin_Negative -->
       <class name="tests.TC1_ValidateLogin_Positive">
         <methods>
           <include name="initialSetUp"/>
-          <include name="loginPHP"/>
+          <include name="loginPHP" invocation-numbers="0"/>
           <include name="tearDown"/>
           <include name="readProperties"/>
         </methods>
       </class> <!-- tests.TC1_ValidateLogin_Positive -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- BaseClass(failed) -->
 </suite> <!-- Failed suite [Suite] -->
