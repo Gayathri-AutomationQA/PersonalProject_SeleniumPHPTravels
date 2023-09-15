@@ -14,9 +14,18 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import reports.ExtentReportManager;
+
 public class BaseClass {
 	Properties configProp;
 	public static WebDriver driver;
+	
+	public BaseClass() {
+		
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+
 	
 	@BeforeClass
 	public Properties readProperties() throws IOException {
@@ -38,6 +47,7 @@ public class BaseClass {
 	@AfterMethod
 	public void tearDown() {
 		driver.close();
+        ExtentReportManager.flushReport();
 	}
 	
 	public void waitForElement(WebElement webElement) {

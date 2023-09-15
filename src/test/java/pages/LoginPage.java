@@ -7,18 +7,23 @@ import org.testng.Assert;
 import hooks.BaseClass;
 
 public class LoginPage extends BaseClass{
+	// Using final for locators 
+	public final By usernameInput = By.id("email");
+	public final By passwordInput = By.id("password");
+	public final By loginButton = By.id("submitBTN");
 
-	public LoginPage (WebDriver driver) {
+
+	public LoginPage (WebDriver driver) { //constructor
 		BaseClass.driver=driver;
 	}
 
 	public LoginPage inputLoginUserName(String uName) {
-		driver.findElement(By.id("email")).sendKeys(uName);
+		driver.findElement(usernameInput).sendKeys(uName);
 		return this;
 	}
 
 	public LoginPage inputLoginPassword(String password) {
-		driver.findElement(By.id("password")).sendKeys(password);
+		driver.findElement(passwordInput).sendKeys(password);
 		return this;
 	}
 
@@ -28,14 +33,15 @@ public class LoginPage extends BaseClass{
 	}
 
 	public LoginPage clickSubmit() {
-		driver.findElement(By.id("submitBTN")).click();;
+		driver.findElement(loginButton).click();
 		return this;
 	}
-	
+
 	public LoginPage validateErrorAlert() {
 		waitForElement(driver.findElement(By.xpath("//h4[text()=\"Invalid Login\"]")));
 		Assert.assertEquals(driver.findElement(By.xpath("//h4[text()=\"Invalid Login\"]")).getText(), "Invalid Login");
 		return this;
 	}
+
 
 }
