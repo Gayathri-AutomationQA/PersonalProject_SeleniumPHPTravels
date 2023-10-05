@@ -6,7 +6,7 @@
       <class name="tests.TC1_ValidateLogin_Positive">
         <methods>
           <include name="initialSetUp"/>
-          <include name="loginPHP" invocation-numbers="0"/>
+          <include name="loginPHP"/>
           <include name="tearDown"/>
           <include name="readProperties"/>
         </methods>

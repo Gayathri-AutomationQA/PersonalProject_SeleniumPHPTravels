@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.TC2_ValidateLogin_Negative">
+      <class name="tests.TC1_ValidateLogin_Positive">
         <methods>
-          <include name="validateNegativeLogin"/>
           <include name="initialSetUp"/>
+          <include name="loginPHP"/>
           <include name="tearDown"/>
           <include name="readProperties"/>
         </methods>
-      </class> <!-- tests.TC2_ValidateLogin_Negative -->
+      </class> <!-- tests.TC1_ValidateLogin_Positive -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
